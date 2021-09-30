@@ -1,0 +1,90 @@
+
+
+<div class="container">
+  
+    <div>
+      
+      <div class="busqueda">
+        <nav class="navbar2">
+          <form class="form-inline">
+            <input 
+              class="form-control4"
+              type="text"
+              placeholder="Buscar por Nombre De Usuario"
+              aria-label="Search"
+              (input)="searchUser($event)"
+            />
+          </form> 
+        </nav>
+
+        
+         
+        
+      </div>
+      
+  
+      <div class="gestorTabla">
+        
+        <table>
+          <thead>
+            <tr>
+               
+              <th>Name</th>
+              <th>UserName</th>
+              <th>Address</th>
+              <th>Phone</th>
+              <th>Website</th>
+              <th>Company</th>
+              
+
+            </tr>
+          </thead>
+  
+          <tr
+
+          
+          *ngFor="
+              let cliente of copylistaUsuarios
+                | paginate: { itemsPerPage: 4, currentPage: paginador };
+              
+            "
+          >
+            <td>
+              <span >{{ cliente.name }} </span>
+              
+            </td>
+            <td>
+              <span >{{ cliente.username }} </span>
+              
+            </td>
+            
+            <td >
+                <span >{{ cliente.address }} </span>
+                
+              </td>
+             
+              <td>
+                <span >{{ cliente.phone }} </span>
+                
+              </td>
+              <td>
+                <span >{{ cliente.website }} </span>
+                
+              </td>
+              <td>
+                <span >{{ cliente.company }} </span>
+                
+              </td>
+              
+          </tr>
+        </table>
+      
+      </div>
+      <div class="pagina">
+        <pagination-controls
+          (pageChange)="handlePageChange($event)"
+        ></pagination-controls>
+      </div>
+      </div>
+    </div>
+
